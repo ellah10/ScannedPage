@@ -1,5 +1,7 @@
 import "./ReviewPage.scss";
 import logo from "../assets/AVILogo.webp"
+import messageIcon from "../assets/7tCccS_28b320e8c063c54a.png"
+import { MessageCircle, MoveRight  } from 'lucide-react';
 
 const ReviewPage = () => {
 
@@ -15,22 +17,24 @@ const ReviewPage = () => {
       <div className="reviewContainer">
         <div className="heading">
           <img src={logo} alt="logo" />
-          <h3>L'unique caution financiere étudiante certifiée ISO 9001</h3>
+          <h3>Une minute pour nous noter</h3>
+          <p>Evaluez nos prestations et laissez un commentaire constructif.</p>
         </div>
         <div className="content">
           <h2>Votre avis compte</h2>
           <div className="review-btns">
-            <button onClick={handleReview}>
-              Laisser un avis
+            <button onClick={handleReview} className="red">
+              <div className="icon">
+                <img src={messageIcon} alt="messageIcon" />
+              </div>
+              je donne mon avis
+              <MoveRight />
             </button>
             <button className="blue">
-              Suivez nous sur Nos réseaux
+              Suivez nous sur Nos réseaux sociaux
             </button>
             <button className="black">
               Nos Horaires
-            </button>
-            <button className="blue">
-              Nos Services
             </button>
           </div>
         </div>
