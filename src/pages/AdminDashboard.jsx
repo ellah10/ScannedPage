@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import './AdminDashboard.scss'
 import {
   collection,
   getDocs
@@ -79,7 +80,7 @@ const AdminDashboard = () => {
       {/* HEADER ADMIN */}
       <div className="admin-header">
 
-        <h1>QR Analytics Dashboard</h1>
+        <h1>QR statistiques</h1>
 
         <button
           className="logout-btn"
@@ -94,7 +95,7 @@ const AdminDashboard = () => {
       <div className="stats-grid">
 
         <div className="stat-card">
-          <h2>Total Scans</h2>
+          <h2>Total de Scans</h2>
           <p>{totalScans}</p>
         </div>
 

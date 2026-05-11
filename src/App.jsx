@@ -4,7 +4,7 @@ import ReviewPage from './pages/ReviewPage'
 import AdminDashboard from './pages/AdminDashboard';
 import LoginAdmin from './pages/LoginAdmin';
 import { Routes, Route } from "react-router-dom";
-import './App.css'
+import './App.scss'
 
 function App() {
   const [count, setCount] = useState(0)
