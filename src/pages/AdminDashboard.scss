@@ -1,0 +1,54 @@
+.admin-dashboard {
+  padding: 40px;
+  background: #f8f9fa;
+  min-height: 100vh;
+
+  .admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+
+    h1 {
+      font-size: 28px;
+    }
+
+    .logout-btn {
+      background: red;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+
+    .stat-card {
+      background: white;
+      padding: 25px;
+      border-radius: 18px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+
+      h2 {
+        font-size: 16px;
+        color: #666;
+      }
+
+      p {
+        font-size: 36px;
+        font-weight: bold;
+        margin-top: 10px;
+      }
+    }
+  }
+}

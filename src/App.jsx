@@ -1,0 +1,41 @@
+import { useState } from 'react'
+import RedirectPage from './pages/RedirectPage'
+import ReviewPage from './pages/ReviewPage'
+import AdminDashboard from './pages/AdminDashboard';
+import LoginAdmin from './pages/LoginAdmin';
+import { Routes, Route } from "react-router-dom";
+import './App.css'
+
+function App() {
+  const [count, setCount] = useState(0)
+
+  return (
+    <Routes>
+      <Route path="/" element={<ReviewPage />} />
+      <Route
+        path="/r/google-review"
+        element={<RedirectPage />}
+      />
+      <Route
+        path="/review"
+        element={<ReviewPage />}
+      />
+      <Route
+        path="/admin"
+        element={<AdminDashboard />}
+      />
+      <Route
+        path="/admin-login"
+        element={<LoginAdmin />}
+      />
+
+      <Route
+        path="/admin"
+        element={<AdminDashboard />}
+      />
+    </Routes>
+
+  )
+}
+
+export default App
