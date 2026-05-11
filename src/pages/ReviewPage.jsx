@@ -17,17 +17,16 @@ const ReviewPage = () => {
       <div className="reviewContainer">
         <div className="heading">
           <img src={logo} alt="logo" />
-          <h3>Une minute pour nous noter</h3>
+          <h2>Une minute pour nous noter</h2>
           <p>Evaluez nos prestations et laissez un commentaire constructif.</p>
         </div>
         <div className="content">
-          <h2>Votre avis compte</h2>
           <div className="review-btns">
             <button onClick={handleReview} className="red">
               <div className="icon">
                 <img src={messageIcon} alt="messageIcon" />
               </div>
-              je donne mon avis
+              Je donne mon avis
               <MoveRight />
             </button>
             <button className="blue">
