@@ -1,72 +1,113 @@
 .review-page {
+  width: 100%;
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(
-    135deg,
-    #f8f9fa,
-    #e9ecef
-  );
   padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  box-sizing: border-box;
 
-  .review-card {
+  .reviewContainer {
     width: 100%;
     max-width: 420px;
-    background: #fff;
-    padding: 40px 30px;
-    border-radius: 24px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 30px 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    box-shadow:
-      0 10px 30px rgba(0, 0, 0, 0.08);
-
-    .review-logo {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 20px;
-      border-radius: 50%;
-      background: #000;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 32px;
-    }
-
-    h1 {
-      font-size: 32px;
-      margin-bottom: 15px;
-      color: #111;
-    }
-
-    p {
-      color: #666;
-      line-height: 1.6;
-      margin-bottom: 25px;
-    }
-
-    .stars {
-      font-size: 32px;
-      color: #fbbc04;
-      margin-bottom: 30px;
-      letter-spacing: 6px;
-    }
-
-    .review-btn {
+    .heading {
       width: 100%;
-      border: none;
-      background: #000;
-      color: #fff;
-      padding: 16px;
-      border-radius: 14px;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      img {
+        width: 220px;
+        height: auto;
+        object-fit: contain;
+        margin-bottom: 15px;
+      }
 
-      &:hover {
-        transform: translateY(-2px);
-        opacity: 0.92;
+      h3 {
+        font-size: 18px;
+        line-height: 1.5;
+        font-weight: 600;
+        color: #222;
+      }
+    }
+
+    .content {
+      width: 100%;
+      margin-top: 30px;
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 25px;
+        color: #111;
+      }
+
+      .review-btns {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        button {
+          width: 100%;
+          min-height: 60px;
+          border: none;
+          border-radius: 12px;
+          background-color: #ff2424;
+          color: #fff;
+          font-size: 18px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          &:hover {
+            opacity: 0.9;
+          }
+        }
+
+        .blue {
+          background-color: #0059ff;
+        }
+
+        .black {
+          background-color: #000;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .review-page {
+    .reviewContainer {
+      max-width: 500px;
+      padding: 40px;
+
+      .heading {
+        img {
+          width: 260px;
+        }
+
+        h3 {
+          font-size: 20px;
+        }
+      }
+
+      .content {
+        h2 {
+          font-size: 38px;
+        }
+        .review-btns {
+          button {
+            font-size: 19px;
+          }
+        }
       }
     }
   }
