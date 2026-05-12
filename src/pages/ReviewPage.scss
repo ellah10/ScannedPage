@@ -100,6 +100,34 @@
   }
 }
 
+/* MOBILE */
+@media screen and (max-width: 767px) {
+  .review-page {
+    padding: 16px;
+    .reviewContainer {
+      .heading {
+        gap: 10px;
+        img {
+          width: 180px;
+        }
+        h3 {
+          font-size: 22px;
+        }
+
+        p {
+          font-size: 15px;
+          margin: 10px 0;
+          max-width: 280px;
+        }
+      }
+
+      .content {
+        margin-top: 28px;
+      }
+    }
+  }
+}
+
 /* TABLETTE */
 @media screen and (min-width: 768px) {
   .review-page {
@@ -117,7 +145,7 @@
         }
 
         p {
-          font-size: 8px;
+          font-size: 5px;
         }
       }
 
