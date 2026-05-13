@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import "./RedirectPage.scss";
-import LogoAvi from "../assets/AVi.jpg"
+import LogoAvi from "../assets/AVi.jpg";
 
 import {
   addDoc,
@@ -16,47 +16,53 @@ const RedirectPage = () => {
 
     const trackScan = async () => {
 
-      const ua = navigator.userAgent;
-      const screenW = window.innerWidth;
+      const params = new URLSearchParams(window.location.search);
+      const isFromQR = params.get("ref") === "qr";
 
-      const isTablet =
-        /iPad/i.test(ua) ||
-        (/Android/i.test(ua) && !/Mobile/i.test(ua)) ||
-        (screenW >= 768 && /Mobi|Android|iPhone/i.test(ua));
+      if (isFromQR) {
 
-      const isMobile =
-        (
-          /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua) ||
-          /Mobi/i.test(ua) ||
-          screenW < 768
-        ) && !isTablet;
+        const ua = navigator.userAgent;
+        const screenW = window.innerWidth;
 
-      const deviceType = isTablet
-        ? "tablet"
-        : isMobile
-        ? "mobile"
-        : "desktop";
+        const isTablet =
+          /iPad/i.test(ua) ||
+          (/Android/i.test(ua) && !/Mobile/i.test(ua)) ||
+          (screenW >= 768 && /Mobi|Android|iPhone/i.test(ua));
 
-      try {
+        const isMobile =
+          (
+            /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua) ||
+            /Mobi/i.test(ua) ||
+            screenW < 768
+          ) && !isTablet;
 
-        await addDoc(
-          collection(db, "qr_scans"),
-          {
-            qrId: "google-review",
-            scannedAt: serverTimestamp(),
-            userAgent: ua,
-            language: navigator.language,
-            platform: navigator.platform,
-            isMobile,
-            isTablet,
-            deviceType,
-            screenWidth: screenW,
-            screenHeight: window.innerHeight,
-          }
-        );
+        const deviceType = isTablet
+          ? "tablet"
+          : isMobile
+          ? "mobile"
+          : "desktop";
 
-      } catch (error) {
-        console.error("Erreur tracking scan :", error);
+        try {
+
+          await addDoc(
+            collection(db, "qr_scans"),
+            {
+              qrId: "google-review",
+              scannedAt: serverTimestamp(),
+              userAgent: ua,
+              language: navigator.language,
+              platform: navigator.platform,
+              isMobile,
+              isTablet,
+              deviceType,
+              screenWidth: screenW,
+              screenHeight: window.innerHeight,
+            }
+          );
+
+        } catch (error) {
+          console.error("Erreur tracking scan :", error);
+        }
       }
 
       window.location.href = "/review";

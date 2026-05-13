@@ -76,21 +76,21 @@ const ReviewPage = () => {
             <h3>Suivez-nous</h3>
             <ul>
               <li>
-                <a href="https://www.facebook.com/avicenterFrance/"  target="_blank"
+                <a href="https://www.facebook.com/share/1Czg1nJwRj/?mibextid=wwXIfr"  target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook">
                     <FaFacebook />
                   </a>
               </li>
               <li>
-                <a href="https://www.instagram.com/avicenterfrance" target="_blank"
+                <a href="https://www.instagram.com/avicenter_togo_officiel?igsh=MWpkZWxjeWhzb2g5YQ==" target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram">
                     <FaInstagram />
                   </a>
               </li>
               <li>
-                <a href="https://www.youtube.com/channel/UC8Rue5DuP5dAhkNmHUZWm9Q" target="_blank"
+                <a href="https://youtube.com/@avicenterfrance?si=GhfFqabqqJtaCYgg" target="_blank"
                   rel="noopener noreferrer"
                   aria-label="YouTube"><FaYoutube /></a>
               </li>
