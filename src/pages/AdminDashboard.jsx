@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import './AdminDashboard.scss'
+import "./AdminDashboard.scss";
+
 import {
   collection,
-  getDocs
+  onSnapshot
 } from "firebase/firestore";
 
 import {
@@ -13,14 +14,13 @@ import {
 import { db, auth } from "../firebase/config";
 import { useNavigate } from "react-router-dom";
 
-import "./AdminDashboard.scss";
-
 const AdminDashboard = () => {
 
   const [scans, setScans] = useState([]);
+
   const navigate = useNavigate();
 
-  // 🔐 protection route
+  // 🔐 Protection admin
   useEffect(() => {
 
     const unsubscribe =
@@ -34,30 +34,35 @@ const AdminDashboard = () => {
 
     return () => unsubscribe();
 
-  }, []);
+  }, [navigate]);
 
-  // 📊 fetch data
+  // 📊 Firestore realtime
   useEffect(() => {
 
-    const fetchScans = async () => {
+    const unsubscribe = onSnapshot(
 
-      const querySnapshot =
-        await getDocs(collection(db, "qr_scans"));
+      collection(db, "qr_scans"),
 
-      const data =
-        querySnapshot.docs.map(doc => ({
+      (snapshot) => {
+
+        const data = snapshot.docs.map(doc => ({
+
           id: doc.id,
+
           ...doc.data()
+
         }));
 
-      setScans(data);
-    };
+        setScans(data);
+      }
 
-    fetchScans();
+    );
+
+    return () => unsubscribe();
 
   }, []);
 
-  // 🚪 logout
+  // 🚪 Logout
   const handleLogout = async () => {
 
     await signOut(auth);
@@ -65,10 +70,11 @@ const AdminDashboard = () => {
     navigate("/admin-login");
   };
 
+  // 📈 Stats
   const totalScans = scans.length;
 
   const mobileScans =
-    scans.filter(s => s.isMobile).length;
+    scans.filter(scan => scan.isMobile).length;
 
   const desktopScans =
     totalScans - mobileScans;
@@ -77,10 +83,10 @@ const AdminDashboard = () => {
 
     <div className="admin-dashboard">
 
-      {/* HEADER ADMIN */}
+      {/* HEADER */}
       <div className="admin-header">
 
-        <h1>QR statistiques</h1>
+        <h1>QR Statistiques</h1>
 
         <button
           className="logout-btn"
@@ -95,7 +101,7 @@ const AdminDashboard = () => {
       <div className="stats-grid">
 
         <div className="stat-card">
-          <h2>Total de Scans</h2>
+          <h2>Total Scans</h2>
           <p>{totalScans}</p>
         </div>
 

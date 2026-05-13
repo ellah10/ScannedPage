@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+
 import {
   addDoc,
   collection,
@@ -12,6 +13,10 @@ const RedirectPage = () => {
   useEffect(() => {
 
     const trackScan = async () => {
+
+      const isMobile =
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
+          .test(navigator.userAgent);
 
       try {
 
@@ -29,9 +34,7 @@ const RedirectPage = () => {
 
             platform: navigator.platform,
 
-            isMobile:
-              /Android|iPhone|iPad|iPod/i
-                .test(navigator.userAgent),
+            isMobile,
 
             screenWidth: window.innerWidth,
 

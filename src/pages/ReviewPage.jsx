@@ -1,7 +1,9 @@
 import "./ReviewPage.scss";
 import logo from "../assets/AVILogo.webp"
+import Avilogo from "../assets/AVi.jpg"
 import messageIcon from "../assets/7tCccS_28b320e8c063c54a.png"
-import { MessageCircle, MoveRight  } from 'lucide-react';
+import { MessageCircle, MoveRight, Phone, Mail } from 'lucide-react';
+import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 
 const ReviewPage = () => {
 
@@ -29,13 +31,55 @@ const ReviewPage = () => {
               Je donne mon avis
               <MoveRight />
             </button>
-            <button className="blue">
-              Suivez nous sur Nos réseaux sociaux
-            </button>
-            <button className="black">
-              Nos Horaires
-            </button>
           </div>
+        </div>
+      </div>
+      <div className="footer">
+        <div className="left-footer">
+          <div className="logo">
+          <img src={Avilogo} alt="avilogo" />
+          </div>
+          <span>L'unique caution financiere étudiante certifiée ISO 9001</span>
+        </div>
+        <div className="social">
+          <h3>suivez nous sur nos reseaux sociaux</h3>
+          <ul>
+            <li>
+              <a href="#">
+                <span>
+                  <FaFacebook />
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span>
+                  <FaInstagram />
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span>
+                  <FaYoutube />
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div className="adress">
+        <p>
+          <span>
+            <Phone />
+          </span>
+            +33188325450
+        </p>
+        <p>
+          <span>
+          <Mail />
+        </span>
+          hello@avicenter.fr
+        </p>
         </div>
       </div>
     </div>
