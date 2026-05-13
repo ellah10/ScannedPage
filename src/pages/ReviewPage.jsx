@@ -3,7 +3,7 @@ import logo from "../assets/AVILogo.webp";
 import Avilogo from "../assets/AVi.jpg";
 import messageIcon from "../assets/7tCccS_28b320e8c063c54a.png";
 import { MoveRight, Phone, Mail } from 'lucide-react';
-import { FaFacebook, FaInstagram, FaYoutube,FaStar  } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaYoutube, FaStar, FaTiktok, FaWhatsapp } from "react-icons/fa";
 
 const ReviewPage = () => {
 
@@ -27,7 +27,7 @@ const ReviewPage = () => {
 
         <div className="content">
           <div className="stars">
-            {[1,2,3,4,5].map(i => (
+            {[1, 2, 3, 4, 5].map(i => (
               <span key={i} className="star">
                 <FaStar />
               </span>
@@ -42,55 +42,106 @@ const ReviewPage = () => {
           </button>
           <p className="hint">Redirige vers Google — moins d'une minute</p>
         </div>
-
       </div>
-
       <footer className="footer">
         <div className="footer-inner">
-
           <div className="left-footer">
             <div className="footer-logo">
               <img src={Avilogo} alt="AVICENTER" />
             </div>
             <span>L'unique caution financière étudiante certifiée ISO 9001</span>
+              {/* WHATSAPP */}
+        {/* <div className="whatsapp-section">
+          <p className="whatsapp-label">
+            <FaWhatsapp className="whatsapp-icon" />
+            Écrivez-nous sur WhatsApp
+          </p>
+          <div className="whatsapp-btns">
+            <a href="https://wa.me/22870431111" target="_blank"
+              rel="noopener noreferrer"
+              className="whatsapp-btn">
+                <FaWhatsapp />
+              +228 70 43 11 11
+            </a>
+            <a href="https://wa.me/22899761010" target="_blank"
+              rel="noopener noreferrer"
+              className="whatsapp-btn"><FaWhatsapp />
+              +228 99 76 10 10
+              </a>
+          </div>
+        </div> */}
           </div>
 
           <div className="social">
             <h3>Suivez-nous</h3>
             <ul>
               <li>
-                <a href="#" aria-label="Facebook">
-                  <FaFacebook />
-                </a>
+                <a href="https://www.facebook.com/avicenterFrance/"  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook">
+                    <FaFacebook />
+                  </a>
               </li>
               <li>
-                <a href="#" aria-label="Instagram">
-                  <FaInstagram />
-                </a>
+                <a href="https://www.instagram.com/avicenterfrance" target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram">
+                    <FaInstagram />
+                  </a>
               </li>
               <li>
-                <a href="#" aria-label="YouTube">
-                  <FaYoutube />
-                </a>
+                <a href="https://www.youtube.com/channel/UC8Rue5DuP5dAhkNmHUZWm9Q" target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube"><FaYoutube /></a>
               </li>
-            </ul>
-          </div>
+              <li>
+                <a href="https://www.tiktok.com/@avicenter_togo?_r=1&_t=ZS-96KIWhC9YIP" target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="TikTok">
+                    <FaTiktok />
+                  </a>
+              </li>
+            </ul >
+          </div >
 
-          <div className="contact">
-            <a href="tel:+33188325450">
-              <Phone size={15} />
-              +33 1 88 32 54 50
+  <div className="contact">
+    {/* <a href="tel:+22870431111">
+      <Phone size={15} />
+      +228 70 43 11 11
+    </a>
+    <a href="tel:+22899761010">
+      <Phone size={15} />
+      +228 99 76 10 10
+    </a> */}
+    <div className="whatsapp-section">
+          {/* <p className="whatsapp-label">
+            <FaWhatsapp className="whatsapp-icon" />
+            Écrivez-nous sur WhatsApp
+          </p> */}
+          <div className="whatsapp-btns">
+            <a href="https://wa.me/22870431111" target="_blank"
+              rel="noopener noreferrer"
+              className="whatsapp-btn">
+                <FaWhatsapp />
+              +228 70 43 11 11
             </a>
-            <a href="mailto:hello@avicenter.fr">
-              <Mail size={15} />
-              hello@avicenter.fr
-            </a>
+            <a href="https://wa.me/22899761010" target="_blank"
+              rel="noopener noreferrer"
+              className="whatsapp-btn"><FaWhatsapp />
+              +228 99 76 10 10
+              </a>
           </div>
-
         </div>
-      </footer>
+    <a href="mailto:togo@avicenter.fr">
+      <Mail size={15} />
+      togo@avicenter.fr
+    </a>
+  </div>
 
-    </div>
+        </div >
+      </footer >
+
+    </div >
   );
 };
 

@@ -81,6 +81,23 @@ const AdminDashboard = () => {
     return s.scannedAt.toDate() >= weekStart;
   }).length;
 
+  // ── Scans ce mois ───────────────────────────────────
+  const monthScans = scans.filter(s => {
+    if (!s.scannedAt) return false;
+    const d = s.scannedAt.toDate();
+    return (
+      d.getMonth() === now.getMonth() &&
+      d.getFullYear() === now.getFullYear()
+    );
+  }).length;
+
+  const monthNames = [
+    "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+    "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
+  ];
+
+  const currentMonth = monthNames[now.getMonth()];
+
   // ── Scans par jour (7 derniers jours) ───────────────
   const dayLabels = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
 
@@ -165,9 +182,9 @@ const AdminDashboard = () => {
         </div>
 
         <div className="stat-card accent-red">
-          <p className="stat-label">Mobile</p>
-          <p className="stat-value">{pct(mobileScans)}%</p>
-          <p className="stat-sub">{mobileScans} scans</p>
+          <p className="stat-label">Ce mois</p>
+          <p className="stat-value">{monthScans}</p>
+          <p className="stat-sub">{currentMonth} {now.getFullYear()}</p>
         </div>
 
       </div>
