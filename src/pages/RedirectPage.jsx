@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+import "./RedirectPage.scss";
+import LogoAvi from "../assets/AVi.jpg"
 
 import {
   addDoc,
@@ -14,38 +16,47 @@ const RedirectPage = () => {
 
     const trackScan = async () => {
 
+      const ua = navigator.userAgent;
+      const screenW = window.innerWidth;
+
+      const isTablet =
+        /iPad/i.test(ua) ||
+        (/Android/i.test(ua) && !/Mobile/i.test(ua)) ||
+        (screenW >= 768 && /Mobi|Android|iPhone/i.test(ua));
+
       const isMobile =
-        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
-          .test(navigator.userAgent);
+        (
+          /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua) ||
+          /Mobi/i.test(ua) ||
+          screenW < 768
+        ) && !isTablet;
+
+      const deviceType = isTablet
+        ? "tablet"
+        : isMobile
+        ? "mobile"
+        : "desktop";
 
       try {
 
         await addDoc(
           collection(db, "qr_scans"),
           {
-
             qrId: "google-review",
-
             scannedAt: serverTimestamp(),
-
-            userAgent: navigator.userAgent,
-
+            userAgent: ua,
             language: navigator.language,
-
             platform: navigator.platform,
-
             isMobile,
-
-            screenWidth: window.innerWidth,
-
+            isTablet,
+            deviceType,
+            screenWidth: screenW,
             screenHeight: window.innerHeight,
           }
         );
 
       } catch (error) {
-
-        console.log(error);
-
+        console.error("Erreur tracking scan :", error);
       }
 
       window.location.href = "/review";
@@ -55,7 +66,15 @@ const RedirectPage = () => {
 
   }, []);
 
-  return <p>Redirection...</p>;
+  return (
+    <div className="redirect-screen">
+      <div className="redirect-logo">
+        <img src={LogoAvi} alt="LogoAvi" />
+      </div>
+      <div className="redirect-spinner" />
+      <p className="redirect-text">Redirection en cours...</p>
+    </div>
+  );
 };
 
 export default RedirectPage;

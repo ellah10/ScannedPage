@@ -1,38 +1,100 @@
 .login-admin {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  background: #f5f5f5;
+  justify-content: center;
+  background: #f5f5f3;
+  font-family: sans-serif;
+  padding: 1rem;
+}
 
-  form {
-    background: white;
-    padding: 40px;
-    border-radius: 20px;
-    width: 320px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+.login-card {
+  background: #fff;
+  border: 0.5px solid #e5e5e3;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 380px;
+}
 
-    h1 {
-      margin-bottom: 20px;
-      text-align: center;
+.login-logo {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  text-align: center;
+  margin-bottom: 6px;
+
+  .logo-red  { color: #FD0000; }
+  .logo-blue { color: #0056F3; }
+}
+
+.login-subtitle {
+  font-size: 13px;
+  color: #999;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 1rem;
+
+  label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #555;
+  }
+
+  input {
+    padding: 10px 14px;
+    border: 0.5px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #1a1a18;
+    outline: none;
+    transition: border-color 0.2s ease;
+    background: #fff;
+
+    &::placeholder { color: #bbb; }
+
+    &:focus {
+      border-color: #0056F3;
+      box-shadow: 0 0 0 3px rgba(0, 86, 243, 0.08);
     }
+  }
+}
 
-    input {
-      width: 100%;
-      margin-bottom: 15px;
-      padding: 12px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-    }
+.login-error {
+  font-size: 12px;
+  color: #FD0000;
+  background: rgba(253, 0, 0, 0.06);
+  border: 0.5px solid rgba(253, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
 
-    button {
-      width: 100%;
-      padding: 12px;
-      background: black;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-    }
+button[type="submit"] {
+  width: 100%;
+  padding: 11px;
+  border-radius: 8px;
+  border: none;
+  background: #0056F3;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, opacity 0.2s ease;
+  margin-top: 0.5rem;
+
+  &:hover:not(:disabled) { background: #0047cc; }
+
+  &.loading,
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
   }
 }
