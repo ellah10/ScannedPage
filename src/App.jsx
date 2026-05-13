@@ -11,7 +11,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<ReviewPage />} />
+      <Route path="/" element={<RedirectPage />} />
       <Route
         path="/r/google-review"
         element={<RedirectPage />}

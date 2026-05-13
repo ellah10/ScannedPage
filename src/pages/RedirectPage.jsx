@@ -14,13 +14,12 @@ const RedirectPage = () => {
 
     const trackScan = async () => {
 
+      const isMobile =
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
+          .test(navigator.userAgent);
+
       try {
 
-        // 📱 Détection mobile plus fiable
-        const isMobile =
-          window.innerWidth <= 768;
-
-        // 🔥 Enregistrement du scan
         await addDoc(
           collection(db, "qr_scans"),
           {
@@ -43,19 +42,13 @@ const RedirectPage = () => {
           }
         );
 
-        console.log("SCAN ENREGISTRÉ");
-
-        // ⏳ Petit délai avant redirection
-        setTimeout(() => {
-
-          window.location.href = "/review";
-
-        }, 800);
-
       } catch (error) {
 
         console.log(error);
+
       }
+
+      window.location.href = "/review";
     };
 
     trackScan();
