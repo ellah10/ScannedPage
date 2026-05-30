@@ -1,0 +1,112 @@
+.qr-page {
+  min-height: 100vh;
+  background: #f4f5f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  padding: 1.5rem;
+}
+
+.qr-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 380px;
+}
+
+.qr-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+
+  .qr-logo {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #f0f0ee;
+  }
+
+  h1 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a18;
+  }
+
+  p {
+    font-size: 13px;
+    color: #999;
+  }
+}
+
+.qr-code-wrap {
+  padding: 20px;
+  background: #fff;
+  border: 3px solid #0056F3;
+  border-radius: 20px;
+  position: relative;
+
+  // Coins rouges décoratifs
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-color: #FD0000;
+    border-style: solid;
+  }
+
+  &::before {
+    top: 6px;
+    left: 6px;
+    border-width: 3px 0 0 3px;
+    border-radius: 4px 0 0 0;
+  }
+
+  &::after {
+    bottom: 6px;
+    right: 6px;
+    border-width: 0 3px 3px 0;
+    border-radius: 0 0 4px 0;
+  }
+}
+
+.qr-url {
+  font-size: 11px;
+  color: #bbb;
+  word-break: break-all;
+  text-align: center;
+  max-width: 280px;
+}
+
+.qr-download-btn {
+  width: 100%;
+  padding: 13px;
+  border-radius: 12px;
+  border: none;
+  background: #0056F3;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    background: #0047cc;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
