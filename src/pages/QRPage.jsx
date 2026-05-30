@@ -3,7 +3,7 @@ import QRCodeStyling from "qr-code-styling";
 import "./QRPage.scss";
 import logo from "../assets/AVi.jpg";
 
-const QR_URL = "https://avicenter.pages.dev/?ref=qr";
+const QR_URL = "https://avireview.pages.dev/?ref=qr";
 
 const qrCode = new QRCodeStyling({
   width: 300,
