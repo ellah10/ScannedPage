@@ -2,15 +2,13 @@ import { useEffect, useRef } from "react";
 import QRCodeStyling from "qr-code-styling";
 import "./QRPage.scss";
 import logo from "../assets/AVi.jpg";
+import qrLogo from "../assets/qrlogoAvi.jpeg";
 
 const QR_URL = "https://avireview.pages.dev/?ref=qr";
 
-const qrCode = new QRCodeStyling({
-  width: 300,
-  height: 300,
-  type: "canvas",
+const sharedOptions = {
   data: QR_URL,
-  image: logo,
+  image: qrLogo,
   dotsOptions: {
     color: "#000000",
     type: "square",
@@ -28,9 +26,23 @@ const qrCode = new QRCodeStyling({
   },
   imageOptions: {
     crossOrigin: "anonymous",
-    margin: 6,
-    imageSize: 0.35,
+    margin: 8,
+    imageSize: 0.40,
   },
+};
+
+const qrCodeDisplay = new QRCodeStyling({
+  ...sharedOptions,
+  width: 280,
+  height: 280,
+  type: "canvas",
+});
+
+const qrCodeDownload = new QRCodeStyling({
+  ...sharedOptions,
+  width: 1000,
+  height: 1000,
+  type: "canvas",
 });
 
 const QRPage = () => {
@@ -40,12 +52,12 @@ const QRPage = () => {
   useEffect(() => {
     if (qrRef.current) {
       qrRef.current.innerHTML = "";
-      qrCode.append(qrRef.current);
+      qrCodeDisplay.append(qrRef.current);
     }
   }, []);
 
   const handleDownload = () => {
-    qrCode.download({
+    qrCodeDownload.download({
       name: "qr-avicenter",
       extension: "png",
     });
@@ -56,7 +68,7 @@ const QRPage = () => {
       <div className="qr-card">
 
         <div className="qr-header">
-          <img src={logo} alt="AVICENTER" className="qr-logo" />
+          <img src={qrLogo} alt="AVICENTER" className="qr-logo" />
           <h1>QR Code — AVICENTER</h1>
           <p>Scannez pour laisser votre avis Google</p>
         </div>
